@@ -2,49 +2,55 @@ body {
     margin: 0;
     background: radial-gradient(circle, #020617, #000);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     text-align: center;
     overflow: hidden;
 }
 
 .title {
-    margin-top: 20px;
-}
-
-/* Cake */
-.cake3d {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 60px auto;
-    transform-style: preserve-3d;
-    transform: rotateX(20deg) rotateY(20deg);
+    margin-top: 30px;
+    font-size: 32px;
     transition: 0.5s;
+}
+
+/* 🎂 Cake */
+.cake {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    margin: 80px auto;
     cursor: pointer;
+    perspective: 800px;
 }
 
-.cake3d:hover {
-    transform: rotateX(25deg) rotateY(40deg) scale(1.1);
-}
-
-.layer {
+/* Cake halves */
+.half {
     position: absolute;
-    width: 200px;
-    height: 60px;
-    border-radius: 20px;
+    width: 110px;
+    height: 140px;
+    background: linear-gradient(#8b5a2b, #5a3825);
+    border-radius: 0 0 20px 20px;
+    transition: 1s;
 }
 
-.bottom { background: #6b3e26; top: 120px; }
-.middle { background: #8b5a2b; top: 80px; }
-.top { background: #c97b36; top: 40px; }
+.left {
+    left: 0;
+    border-right: 2px solid #3a2418;
+}
 
-.icing {
+.right {
+    right: 0;
+    border-left: 2px solid #3a2418;
+}
+
+/* Top icing */
+.top {
     position: absolute;
-    width: 200px;
-    height: 40px;
-    background: white;
-    top: 30px;
-    border-radius: 20px;
+    width: 220px;
+    height: 50px;
+    background: #fff;
+    top: -20px;
+    border-radius: 50%;
 }
 
 /* Candle */
@@ -53,8 +59,8 @@ body {
     width: 10px;
     height: 40px;
     background: red;
-    top: -10px;
-    left: 95px;
+    top: -50px;
+    left: 105px;
 }
 
 .flame {
@@ -66,38 +72,25 @@ body {
 }
 
 @keyframes flicker {
-    from { transform: scale(1); opacity: 0.8; }
-    to { transform: scale(1.2); opacity: 1; }
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
 }
 
-/* Cake animation */
-.cut {
-    animation: cut 1s forwards;
+/* Cut animation */
+.cut .left {
+    transform: translateX(-40px) rotateY(-20deg);
 }
 
-@keyframes cut {
-    50% { transform: scale(1.1) rotateZ(2deg); }
-    100% { transform: scale(0.9) rotateZ(-5deg); }
+.cut .right {
+    transform: translateX(40px) rotateY(20deg);
 }
 
-/* Message */
-.message {
-    opacity: 0;
-    margin-top: 20px;
-    font-size: 24px;
-    transition: 0.5s;
-}
-
-.message.show {
-    opacity: 1;
-}
-
-/* Gift */
+/* 🎁 Gift */
 .gift {
     position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 30px auto;
+    width: 120px;
+    height: 120px;
+    margin: 40px auto;
     display: none;
     cursor: pointer;
 }
@@ -107,46 +100,54 @@ body {
 }
 
 .box {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    background: #4cafef;
+    border-radius: 10px;
+}
+
+/* Lid */
+.lid {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background: #2c82c9;
+    top: -40px;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
+/* Ribbons */
+.ribbon {
+    position: absolute;
     background: gold;
 }
 
-.lid {
-    width: 100px;
-    height: 30px;
-    background: red;
-    position: absolute;
-    top: -30px;
-    transition: 0.5s;
+.vertical {
+    width: 20px;
+    height: 120px;
+    left: 50px;
 }
 
-.gift.open .lid {
-    transform: translateY(-40px) rotate(20deg);
+.horizontal {
+    width: 120px;
+    height: 20px;
+    top: 50px;
+}
+
+/* Open animation */
+.open .lid {
+    transform: translateY(-60px) rotate(25deg);
 }
 
 /* Blessings */
 .blessings {
     opacity: 0;
+    font-size: 20px;
     margin-top: 20px;
-    font-size: 18px;
     transition: 0.5s;
 }
 
 .blessings.show {
     opacity: 1;
-}
-
-/* Confetti */
-.confetti {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-    }
 }
