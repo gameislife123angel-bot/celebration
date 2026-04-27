@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    background: radial-gradient(circle, #020617, #000);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+/* Cake */
+.cake3d {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 60px auto;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(20deg);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.cake3d:hover {
+    transform: rotateX(25deg) rotateY(40deg) scale(1.1);
+}
+
+.layer {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+.bottom { background: #6b3e26; top: 120px; }
+.middle { background: #8b5a2b; top: 80px; }
+.top { background: #c97b36; top: 40px; }
+
+.icing {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background: white;
+    top: 30px;
+    border-radius: 20px;
+}
+
+/* Candle */
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background: red;
+    top: -10px;
+    left: 95px;
+}
+
+.flame {
+    width: 10px;
+    height: 15px;
+    background: orange;
+    border-radius: 50%;
+    animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+/* Cake animation */
+.cut {
+    animation: cut 1s forwards;
+}
+
+@keyframes cut {
+    50% { transform: scale(1.1) rotateZ(2deg); }
+    100% { transform: scale(0.9) rotateZ(-5deg); }
+}
+
+/* Message */
+.message {
+    opacity: 0;
+    margin-top: 20px;
+    font-size: 24px;
+    white-space: pre-line;
+    transition: 0.5s;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+/* Gift */
+.gift {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+    display: none;
+    cursor: pointer;
+}
+
+.gift.show {
+    display: block;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: gold;
+}
+
+.lid {
+    width: 100px;
+    height: 30px;
+    background: red;
+    position: absolute;
+    top: -30px;
+    transition: 0.5s;
+}
+
+.gift.open .lid {
+    transform: translateY(-40px) rotate(20deg);
+}
+
+/* Blessings */
+.blessings {
+    opacity: 0;
+    margin-top: 20px;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.blessings.show {
+    opacity: 1;
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
