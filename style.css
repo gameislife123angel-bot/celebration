@@ -1,15 +1,37 @@
 body {
     margin: 0;
-    background: radial-gradient(circle, #020617, #000);
+    background: radial-gradient(circle at top, #020617, #000);
     color: white;
-    font-family: Arial;
+    font-family: "Segoe UI", Arial, sans-serif;
     text-align: center;
     overflow: hidden;
 }
 
+/* ✨ Top Credit */
+.credit {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.credit.fade {
+    opacity: 0;
+}
+
+/* 🎉 Title */
 .title {
-    margin-top: 30px;
-    font-size: 32px;
+    margin-top: 50px;
+    font-size: 34px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffffff, #ffd700, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     transition: 0.5s;
 }
 
@@ -30,7 +52,7 @@ body {
     height: 140px;
     background: linear-gradient(#8b5a2b, #5a3825);
     border-radius: 0 0 20px 20px;
-    transition: 1s;
+    transition: 1s ease;
 }
 
 .left {
@@ -43,12 +65,12 @@ body {
     border-left: 2px solid #3a2418;
 }
 
-/* Top icing */
+/* Icing top */
 .top {
     position: absolute;
     width: 220px;
     height: 50px;
-    background: #fff;
+    background: radial-gradient(circle, #ffffff, #eaeaea);
     top: -20px;
     border-radius: 50%;
 }
@@ -72,17 +94,17 @@ body {
 }
 
 @keyframes flicker {
-    from { transform: scale(1); }
-    to { transform: scale(1.2); }
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.2); opacity: 1; }
 }
 
-/* Cut animation */
+/* Cake cut */
 .cut .left {
-    transform: translateX(-40px) rotateY(-20deg);
+    transform: translateX(-50px) rotateY(-25deg);
 }
 
 .cut .right {
-    transform: translateX(40px) rotateY(20deg);
+    transform: translateX(50px) rotateY(25deg);
 }
 
 /* 🎁 Gift */
@@ -93,17 +115,24 @@ body {
     margin: 40px auto;
     display: none;
     cursor: pointer;
+    transform: scale(0.8);
+    transition: transform 0.3s;
 }
 
 .gift.show {
     display: block;
+    transform: scale(1);
+}
+
+.gift:hover {
+    transform: scale(1.05);
 }
 
 .box {
     width: 120px;
     height: 120px;
-    background: #4cafef;
-    border-radius: 10px;
+    background: linear-gradient(#4cafef, #2c82c9);
+    border-radius: 12px;
 }
 
 /* Lid */
@@ -111,13 +140,13 @@ body {
     position: absolute;
     width: 120px;
     height: 40px;
-    background: #2c82c9;
+    background: linear-gradient(#2c82c9, #1f5f99);
     top: -40px;
     border-radius: 10px;
-    transition: 0.7s;
+    transition: 0.6s ease;
 }
 
-/* Ribbons */
+/* Ribbon */
 .ribbon {
     position: absolute;
     background: gold;
@@ -137,15 +166,15 @@ body {
 
 /* Open animation */
 .open .lid {
-    transform: translateY(-60px) rotate(25deg);
+    transform: translateY(-70px) rotate(30deg);
 }
 
-/* Blessings */
+/* 💬 Blessings */
 .blessings {
     opacity: 0;
     font-size: 20px;
     margin-top: 20px;
-    transition: 0.5s;
+    transition: opacity 0.6s ease;
 }
 
 .blessings.show {
