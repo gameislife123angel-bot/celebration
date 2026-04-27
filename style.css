@@ -85,7 +85,6 @@ body {
     opacity: 0;
     margin-top: 20px;
     font-size: 24px;
-    white-space: pre-line;
     transition: 0.5s;
 }
 
