@@ -5,7 +5,7 @@ const blessings = document.getElementById("blessings");
 
 let clicked = false;
 
-// Cake Click
+// 🎂 Cake Click
 cake.onclick = () => {
     if (clicked) return;
     clicked = true;
@@ -16,36 +16,35 @@ cake.onclick = () => {
     // Animate cake
     cake.classList.add("cut");
 
-    // Confetti
+    // Fireworks + confetti
     startConfetti();
 
-    // Message typing
+    // Typing message
     typeText(
         "🎉 Congratulations Dad! 🎉\nPromoted to Chief Manager (CM)!",
         message
     );
 
-    // Show gift
     setTimeout(() => {
         gift.classList.add("show");
     }, 2500);
 };
 
-// Gift Click
+// 🎁 Gift Click
 gift.onclick = () => {
     gift.classList.add("open");
 
     setTimeout(() => {
         blessings.innerHTML = `
-🌟 Wishing you endless success 🌟<br><br>
-Your hard work inspires us every day ❤️<br><br>
-🚀 Keep rising higher, we are proud of you 🚀
+        🌟 Wishing you endless success 🌟<br><br>
+        Your hard work inspires us every day ❤️<br><br>
+        🚀 Keep rising higher, we are proud of you 🚀
         `;
         blessings.classList.add("show");
     }, 500);
 };
 
-// Typing Effect
+// ✨ Typing Effect
 function typeText(text, element) {
     element.classList.add("show");
     element.innerHTML = "";
@@ -58,7 +57,7 @@ function typeText(text, element) {
     }, 40);
 }
 
-// Confetti
+// 🎊 Confetti
 function startConfetti() {
     for (let i = 0; i < 150; i++) {
         let conf = document.createElement("div");
@@ -72,7 +71,7 @@ function startConfetti() {
     }
 }
 
-// Colors
+// 🎨 Colors
 function randomColor() {
     const colors = ["red", "yellow", "blue", "green", "pink", "white"];
     return colors[Math.floor(Math.random() * colors.length)];
