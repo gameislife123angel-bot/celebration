@@ -22,7 +22,7 @@ cake.onclick = () => {
 
     // Update title
     setTimeout(() => {
-        title.innerText = "🎉 Congratulations Dad! Chief Manager (CM) 🎉";
+        title.innerText = "🎉 Happy Birthday/Mother's Day MoM 🎉";
     }, 500);
 
     // Show gift
